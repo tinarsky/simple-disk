@@ -1,4 +1,4 @@
-package com.github.tinarsky;
+package com.github.tinarsky.simpledisk;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
