@@ -66,6 +66,10 @@ public class SystemItem {
 		return this.size;
 	}
 
+	public void setSize(Long size) {
+		this.size = size;
+	}
+
 	public static class Builder {
 		private final SystemItem preBuildItem;
 
