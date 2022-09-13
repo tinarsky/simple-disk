@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    image: postgres:12.12-alpine
+    container_name: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data/pgdata
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: simple-disk-db
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+  app:
+    image: simple-disk-app:latest
+    build:
+      context: .
+    container_name: application
+    depends_on:
+      - db
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/simple-disk-db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+
