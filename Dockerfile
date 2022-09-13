@@ -10,4 +10,4 @@ RUN ./mvnw -B dependency:resolve dependency:resolve-plugins
 RUN ./mvnw clean package -Dmaven.test.skip=true \
   && cp target/*.jar app.jar
 ENTRYPOINT ["java","-jar","app.jar"]
-EXPOSE 8080
+EXPOSE 80
