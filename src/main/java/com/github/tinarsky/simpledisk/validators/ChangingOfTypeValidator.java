@@ -21,6 +21,8 @@ public class ChangingOfTypeValidator implements ConstraintValidator<ChangingOfTy
 	@Override
 	public boolean isValid(List<SystemItemImport> items, ConstraintValidatorContext context) {
 		return items.stream().allMatch(item -> {
+			if(item.getId() == null)
+				return false;
 			var itemFromDb = systemItemRepo.findById(item.getId());
 			return itemFromDb.isEmpty() || itemFromDb.get().getType() == item.getType();
 		});

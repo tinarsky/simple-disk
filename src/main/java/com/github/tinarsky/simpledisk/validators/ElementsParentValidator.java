@@ -24,12 +24,11 @@ public class ElementsParentValidator implements ConstraintValidator<ElementsPare
 	public boolean isValid(List<SystemItemImport> items, ConstraintValidatorContext context) {
 		return items.stream().allMatch(item -> {
 			var parentId = item.getParentId();
-			if(parentId == null)
+			if (parentId == null)
 				return true;
 			var parentFromDb = systemItemRepo.findById(parentId);
-			if (parentFromDb.isPresent() &&
-					parentFromDb.get().getType() == SystemItemType.FOLDER) {
-				return true;
+			if (parentFromDb.isPresent()) {
+				return parentFromDb.get().getType() == SystemItemType.FOLDER;
 			}
 			var parentFromRequest = items.stream()
 					.filter(itemImport -> Objects.equals(itemImport.getId(), parentId))
