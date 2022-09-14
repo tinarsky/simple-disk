@@ -46,7 +46,7 @@ public class SystemItemController {
 	}
 
 	@GetMapping("/updates")
-	public SystemItemHistoryResponse updates(@RequestParam("date") String date) {
+	public SystemItemHistoryResponse nodeHistory(@RequestParam("date") String date) {
 		SystemItemHistoryResponse updates = null;
 		try {
 			updates = systemItemService.getUpdates(date);
@@ -57,9 +57,9 @@ public class SystemItemController {
 	}
 
 	@GetMapping("/node/{id}/history")
-	public SystemItemHistoryResponse updates(@PathVariable("id") String id,
-											 @RequestParam("dateStart") String dateStart,
-											 @RequestParam("dateEnd") String dateEnd) {
+	public SystemItemHistoryResponse nodeHistory(@PathVariable("id") String id,
+												 @RequestParam("dateStart") String dateStart,
+												 @RequestParam("dateEnd") String dateEnd) {
 		SystemItemHistoryResponse history = null;
 		try {
 			history = systemItemService.getItemHistory(id, dateStart, dateEnd);
