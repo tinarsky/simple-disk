@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "id": "element1",
+      "url": null,
+      "parentId": null,
+      "size": 1,
+      "type": "FOLDER"
+    },
+    {
+      "id": "element1",
+      "url": null,
+      "parentId": null,
+      "size": 1,
+      "type": "FILE"
+    },
+    {
+      "id": "element2",
+      "url": "some/url/new",
+      "parentId": "element3",
+      "size": 256,
+      "type": "FILE"
+    },
+    {
+      "id": "element3",
+      "url": null,
+      "parentId": "element4",
+      "size": null,
+      "type": "FOLDER"
+    },
+    {
+      "id": "element4",
+      "url": "url/link",
+      "parentId": "element3",
+      "size": 200,
+      "type": "FILE"
+    },
+    {
+      "id": "element5",
+      "url": null,
+      "parentId": "element3",
+      "size": null,
+      "type": "FOLDER"
+    },
+    {
+      "id": null,
+      "url": "url/test",
+      "parentId": "element5",
+      "size": 50,
+      "type": "FILE"
+    }
+  ],
+  "updateDate": "2022-06-05T21:12:06"
+}
